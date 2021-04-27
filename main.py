@@ -26,7 +26,7 @@ paddle_b.shape("square")
 paddle_b.color("white")
 paddle_b.shapesize(stretch_wid=5, stretch_len=1)
 paddle_b.penup()
-paddle_b.goto(+350, 0)
+paddle_b.goto(350, 0)
 
 # Ball
 ball = turtle.Turtle()
@@ -36,6 +36,40 @@ ball.color("white")
 ball.penup()
 ball.goto(0, 0)
 
+# Function
+def paddle_a_up():
+    y = paddle_a.ycor()
+    y += 20
+    paddle_a.sety(y)
+
+def paddle_a_down():
+    y = paddle_a.ycor()
+    y -= 20
+    paddle_a.sety(y)
+
+def paddle_b_up():
+    y = paddle_b.ycor()
+    y += 20
+    paddle_b.sety(y)
+
+def paddle_b_down():
+    y = paddle_b.ycor()
+    y -= 20
+    paddle_b.sety(y)
+
+
+# Keyboard binding
+gameboard.listen()
+gameboard.onkeypress(paddle_a_up, "w")
+
+gameboard.listen()
+gameboard.onkeypress(paddle_a_down, "s")
+
+gameboard.listen()
+gameboard.onkeypress(paddle_b_up, "Up")
+
+gameboard.listen()
+gameboard.onkeypress(paddle_b_down, "Down")
 
 # Main game loop
 while True:
